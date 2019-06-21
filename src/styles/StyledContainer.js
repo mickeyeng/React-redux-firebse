@@ -6,4 +6,11 @@ export const StyledContainer = styled.div`
     margin: 0 auto;
     border: 1px solid red;
     display: flex;  
+
+
+    margin-top: ${props => {
+        return (
+            props.form ? '4rem' : '0'
+        )
+    }}
 `;

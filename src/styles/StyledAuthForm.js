@@ -1,10 +1,13 @@
 import styled from 'styled-components'
 
 export const StyledAuthForm = styled.form`
-     width: 100%;
-    
+    width: 100%;
+    background: white;
+    padding: 2rem;
+
     h2 {
         font-weight: 500;
+        margin: 20px 0;
     }
 
     div {
@@ -76,4 +79,5 @@ export const Button = styled.button`
     outline: none;
     border: none;
     text-transform: uppercase;
+    margin: 20px 0;
 `

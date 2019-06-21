@@ -24,7 +24,7 @@ class SignIn extends React.Component {
     render() {
         return (
             <>
-                <StyledContainer>
+                <StyledContainer form>
                     <StyledAuthForm onSubmit={this.handleSubmit}>
                         <h2>Sign In</h2>
                         <div>
