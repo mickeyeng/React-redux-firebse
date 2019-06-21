@@ -30,7 +30,7 @@ class SignUp extends React.Component {
             <>
                 <StyledContainer>
                     <StyledAuthForm onSubmit={this.handleSubmit}>
-                        <h2>Sign In</h2>
+                        <h2>Sign Up</h2>
 
                         <div>
                             <label htmlFor="firstName">First Name</label>
