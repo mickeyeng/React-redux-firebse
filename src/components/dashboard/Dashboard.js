@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from '../../styles/base'
+import { StyledContainer } from '../../styles/StyledContainer'
 import styled from 'styled-components'
 import Notifications from './Notifications'
 import ProjectList from '../projects/ProjectList'
@@ -7,19 +7,13 @@ import ProjectList from '../projects/ProjectList'
 const MainWrapper = styled.div`
     display: grid;
     width: 100%;
-    grid-template-columns: 80% 20%;
-    grid-gap: 2rem;
+    grid-template-columns: auto 40%;
+    grid-gap: 1rem;
 `
-
-
-
-
-
-
 class Dashboard extends React.Component {
     render() {
         return (
-            <Container>
+            <StyledContainer>
                 <MainWrapper>
 
 
@@ -32,7 +26,7 @@ class Dashboard extends React.Component {
 
 
                 </MainWrapper>
-            </Container>
+            </StyledContainer>
         )
     }
 
