@@ -1,5 +1,11 @@
 import React from 'react'
+import styled from 'styled-components'
 
+
+
+const NotificationStyles = styled.div`
+
+`
 
 const Notifications = () => {
     return (
