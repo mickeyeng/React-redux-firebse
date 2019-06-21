@@ -1,6 +1,8 @@
 import React from 'react'
 import { StyledContainer } from '../../styles/StyledContainer'
 import { StyledAuthForm, Button } from '../../styles/StyledAuthForm'
+import { createProject } from '../../actions/projectAction'
+import { connect } from 'react-redux'
 
 
 class CreateProject extends React.Component {
@@ -18,11 +20,13 @@ class CreateProject extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         console.log(this.state)
+        this.props.createProject(this.state)
     }
 
     render() {
+        console.log(this.props)
         return (
-            <>
+            <React.Fragment>
                 <StyledContainer form>
                     <StyledAuthForm onSubmit={this.handleSubmit}>
                         <h2>Create Project</h2>
@@ -39,9 +43,15 @@ class CreateProject extends React.Component {
                         <Button>Create</Button>
                     </StyledAuthForm>
                 </StyledContainer>
-            </>
+            </React.Fragment>
         )
     }
 }
 
-export default CreateProject
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createProject: (project) => dispatch(createProject(project))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CreateProject)
