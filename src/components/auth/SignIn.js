@@ -5,15 +5,20 @@ import { StyledAuthForm, Button } from '../../styles/StyledAuthForm'
 
 class SignIn extends React.Component {
     state = {
-
+        email: '',
+        password: ''
     }
 
     handleChange = (e) => {
-        console.log(e)
+        this.setState({
+            [e.target.id]: e.target.value,
+            [e.target.id]: e.target.value
+        })
     }
 
     handleSubmit = (e) => {
-        console.log(e)
+        e.preventDefault()
+        console.log(this.state)
     }
 
     render() {
