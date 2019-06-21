@@ -2,11 +2,11 @@ import React from 'react'
 import { StyledCard } from '../../styles/StyledCard'
 
 
-const ProjectSummary = () => {
+const ProjectSummary = ({ project }) => {
     return (
         <StyledCard>
-            <h2>Project Title</h2>
-            <p>Posted By Mickey</p>
+            <h2>{project.title}</h2>
+            <p>{project.content}</p>
             <p>3rd September 2019</p>
         </StyledCard>
     )

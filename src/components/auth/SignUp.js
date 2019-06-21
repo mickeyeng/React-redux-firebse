@@ -28,7 +28,7 @@ class SignUp extends React.Component {
     render() {
         return (
             <>
-                <StyledContainer>
+                <StyledContainer form>
                     <StyledAuthForm onSubmit={this.handleSubmit}>
                         <h2>Sign Up</h2>
 

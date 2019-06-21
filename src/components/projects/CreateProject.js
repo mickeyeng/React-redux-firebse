@@ -23,7 +23,7 @@ class CreateProject extends React.Component {
     render() {
         return (
             <>
-                <StyledContainer>
+                <StyledContainer form>
                     <StyledAuthForm onSubmit={this.handleSubmit}>
                         <h2>Create Project</h2>
 

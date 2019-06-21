@@ -1,7 +1,9 @@
 
-const initialState = {}
+const defaultState = {
+    test: ''
+}
 
-const authReducer = (state = initialState, action) => {
+const authReducer = (state = defaultState, action) => {
     return state
 }
 
