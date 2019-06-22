@@ -1,22 +1,48 @@
 import React from 'react'
 import { StyledContainer } from '../../styles/StyledContainer'
 import { StyledCard } from '../../styles/StyledCard'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
 
 const ProjectDetails = (props) => {
+    const { project } = props
+    console.log(props)
+    if (project) {
+        return (
+            <StyledContainer>
+                <StyledCard summary>
+                    <h2> - {project.title}</h2>
+                    <p>{project.content}</p>
+                    <hr />
+                    <p>Posted By {project.authorFirstName} {project.authorFirstName}</p>
+                    <p>{project.authorCreatedAt}</p>
+                </StyledCard>
+            </StyledContainer>
+        )
+    } else {
+        return (
+            <StyledContainer>
+                <p>Loading project....</p>
+            </StyledContainer>
+        )
+    }
 
-    const id = props.match.params.id;
-
-    return (
-        <StyledContainer>
-            <StyledCard summary>
-                <h2>Project Summary - {props.match.params.id}</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum ipsam esse accusantium placeat dicta repellat. Placeat ex optio facere neque iusto esse soluta voluptatem doloribus ea eaque. Dolore, velit minima?</p>
-                <hr />
-                <p>Posted By Mickey</p>
-                <p>21 June 2019, 1pm</p>
-            </StyledCard>
-        </StyledContainer>
-    )
 }
 
-export default ProjectDetails
+const mapStateToProps = (state, ownProps) => {
+    const id = ownProps.match.params.id
+    const projects = state.firestore.data.projects
+    const project = projects ? projects[id] : null
+    return {
+        project: project
+    }
+}
+
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'projects' },
+    ])
+
+)(ProjectDetails)

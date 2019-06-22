@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import Notifications from './Notifications'
 import ProjectList from '../projects/ProjectList'
 import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 const MainWrapper = styled.div`
     display: grid;
@@ -16,20 +18,11 @@ const MainWrapper = styled.div`
 class Dashboard extends React.Component {
     render() {
         const { projects } = this.props
-        console.log(projects)
         return (
             <StyledContainer top>
                 <MainWrapper>
-
-
                     <ProjectList projects={projects} />
-
-
-
                     <Notifications />
-
-
-
                 </MainWrapper>
             </StyledContainer>
         )
@@ -41,8 +34,13 @@ class Dashboard extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        projects: state.project.projects
+        projects: state.firestore.ordered.projects
     }
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'projects' }
+    ])
+)(Dashboard)
