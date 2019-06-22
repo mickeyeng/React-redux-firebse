@@ -15,8 +15,8 @@ const ProjectDetails = (props) => {
                     <h2> - {project.title}</h2>
                     <p>{project.content}</p>
                     <hr />
-                    <p>Posted By {project.authorFirstName} {project.authorFirstName}</p>
-                    <p>{project.authorCreatedAt}</p>
+                    <p>Posted By {project.authorFirstName} {project.authorLastName}</p>
+                    <p>date</p>
                 </StyledCard>
             </StyledContainer>
         )
