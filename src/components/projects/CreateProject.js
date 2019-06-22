@@ -19,12 +19,11 @@ class CreateProject extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state)
         this.props.createProject(this.state)
+        this.props.history.push('/')
     }
 
     render() {
-        console.log(this.props)
         return (
             <React.Fragment>
                 <StyledContainer form>
