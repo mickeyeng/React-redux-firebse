@@ -13,8 +13,7 @@ const Navbar = (props) => {
     return (
         <StyledNav dark>
             <StyledContainer>
-                <SignedInLinks />
-                <SignedOutLinks />
+                {auth.uid ? <SignedInLinks /> : <SignedOutLinks />}
                 <StyledLogo><Link to='/'>MarioPlan</Link></StyledLogo>
             </StyledContainer>
         </StyledNav>
@@ -23,7 +22,7 @@ const Navbar = (props) => {
 
 
 const mapStateToProps = (state) => {
-    console.log(state);
+    // console.log(state);
     return {
         auth: state.firebase.auth
     }
