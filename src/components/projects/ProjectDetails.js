@@ -4,14 +4,15 @@ import { StyledCard } from '../../styles/StyledCard'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 const ProjectDetails = (props) => {
-    const { project } = props
-    console.log(props)
+    const { project, auth } = props
+    if (!auth.uid) return <Redirect to='/signin' />
     if (project) {
         return (
             <StyledContainer>
-                <StyledCard summary>
+                <StyledCard projectSummary>
                     <h2> - {project.title}</h2>
                     <p>{project.content}</p>
                     <hr />
@@ -35,7 +36,8 @@ const mapStateToProps = (state, ownProps) => {
     const projects = state.firestore.data.projects
     const project = projects ? projects[id] : null
     return {
-        project: project
+        project: project,
+        auth: state.firebase.auth
     }
 }
 

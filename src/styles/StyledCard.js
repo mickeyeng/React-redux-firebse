@@ -15,8 +15,8 @@ export const StyledCard = styled.div`
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
 
-    width: ${props => props.summary && '100%'}
-    margin-top: ${props => props.summary && '3rem'}
+    width: ${props => props.projectSummary && '100%'}
+    margin-top: ${props => props.projectSummary && '3rem'}
 
     h2 { 
         font-weight: 500;

@@ -20,7 +20,7 @@ const store = createStore(rootReducer,
     )
 )
 
-// React won't load until firebase is ready!
+// React won't load until firebase is ready
 store.firebaseAuthIsReady.then(() => {
     ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 })

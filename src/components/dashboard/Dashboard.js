@@ -6,6 +6,7 @@ import ProjectList from '../projects/ProjectList'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import { Redirect } from 'react-router-dom'
 
 const MainWrapper = styled.div`
     display: grid;
@@ -17,12 +18,12 @@ const MainWrapper = styled.div`
 `
 class Dashboard extends React.Component {
     render() {
-        const { projects } = this.props
+        const { projects, auth } = this.props
+        if (!auth.uid) return <Redirect to='/signin' />
         return (
             <StyledContainer top>
                 <MainWrapper>
                     <ProjectList projects={projects} />
-
                 </MainWrapper>
             </StyledContainer>
         )
@@ -34,7 +35,8 @@ class Dashboard extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        projects: state.firestore.ordered.projects
+        projects: state.firestore.ordered.projects,
+        auth: state.firebase.auth
     }
 }
 

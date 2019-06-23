@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 const ProjectSummary = ({ project }) => {
+
     return (
         <StyledCard>
             <Link to={`project/${project.id}`}>
@@ -15,6 +16,5 @@ const ProjectSummary = ({ project }) => {
         </StyledCard>
     )
 }
-
 
 export default ProjectSummary
