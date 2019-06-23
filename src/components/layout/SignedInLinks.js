@@ -5,13 +5,6 @@ import { connect } from 'react-redux'
 
 
 const SignedInLinks = (props) => {
-    console.log(props)
-
-    // const handleSignOut = () => {
-    //     console.log('clicked')
-    //     props.dispatch(signOut())
-    // }
-
     return (
         <ul>
             <NavLink to="/create">New Project</NavLink>

@@ -3,6 +3,7 @@ import { StyledContainer } from '../../styles/StyledContainer'
 import { StyledAuthForm, Button } from '../../styles/StyledAuthForm'
 import { connect } from 'react-redux'
 import { signIn } from '../../actions/authActions'
+import { Redirect } from 'react-router-dom'
 
 
 class SignIn extends React.Component {
@@ -24,7 +25,8 @@ class SignIn extends React.Component {
     }
 
     render() {
-        const { authError } = this.props
+        const { authError, auth } = this.props
+        if (auth.uid) return <Redirect to='/' />
         return (
             <React.Fragment>
                 <StyledContainer setMarginTop>
@@ -53,7 +55,8 @@ class SignIn extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        authError: state.auth.authError
+        authError: state.auth.authError,
+        auth: state.firebase.auth
     }
 }
 
