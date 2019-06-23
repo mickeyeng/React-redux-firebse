@@ -26,7 +26,7 @@ class CreateProject extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <StyledContainer form>
+                <StyledContainer setMarginTop>
                     <StyledAuthForm onSubmit={this.handleSubmit}>
                         <h2>Create Project</h2>
 

@@ -10,7 +10,7 @@ export const StyledContainer = styled.div`
 
     margin-top: ${props => {
         return (
-            props.form ? '4rem' : '0'
+            props.setMarginTop ? '4rem' : '0'
         )
     }}
 `;

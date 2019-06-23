@@ -7,7 +7,7 @@ const API_KEY = process.env.REACT_APP_FIREBASE_API_KEY
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: `${API_KEY}`,
+    apiKey: API_KEY,
     authDomain: "mickey-react-redux-firebase.firebaseapp.com",
     databaseURL: "https://mickey-react-redux-firebase.firebaseio.com",
     projectId: "mickey-react-redux-firebase",
@@ -19,3 +19,5 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export default firebase
+
+
