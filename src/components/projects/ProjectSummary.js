@@ -12,6 +12,7 @@ const ProjectSummary = ({ project }) => {
                 <h2>{project.title}</h2>
             </Link>
             <p>{project.content}</p>
+            <p>{project.authorFirstName} {project.authorLastName}</p>
             <p>3rd September 2019</p>
         </StyledCard>
     )
