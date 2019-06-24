@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyledCard } from '../../styles/StyledCard'
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 
 
 
@@ -13,7 +14,7 @@ const ProjectSummary = ({ project }) => {
             </Link>
             <p>{project.content}</p>
             <p>{project.authorFirstName} {project.authorLastName}</p>
-            <p>3rd September 2019</p>
+            <p>{moment(project.createdAt.toDate()).calendar()}</p>
         </StyledCard>
     )
 }
