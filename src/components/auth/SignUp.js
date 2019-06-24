@@ -58,7 +58,7 @@ class SignUp extends React.Component {
 
                         <Button>Sign Up</Button>
                         <div>
-                            {authError ? <p>{auth}</p> : null}
+                            {authError ? <p>{authError}</p> : null}
                         </div>
                     </StyledAuthForm>
                 </StyledContainer>
@@ -68,9 +68,10 @@ class SignUp extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.firebase.authError)
+    console.log(state.authError)
     return {
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        authError: state.auth.authError,
     }
 }
 
