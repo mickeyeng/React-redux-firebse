@@ -32,7 +32,7 @@ const authReducer = (state = defaultState, action) => {
             console.log('user created successfully')
             return {
                 ...state,
-                newUser: action.credentials,
+                newUser: action.newUser,
                 authError: null
             }
         case 'CREATE_USER_ERROR':

@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyledContainer } from '../../styles/StyledContainer'
 import styled from 'styled-components'
-// import Notifications from './Notifications'
+import Notifications from './Notifications'
 import ProjectList from '../projects/ProjectList'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
@@ -24,6 +24,7 @@ class Dashboard extends React.Component {
             <StyledContainer top>
                 <MainWrapper>
                     <ProjectList projects={projects} />
+                    <Notifications />
                 </MainWrapper>
             </StyledContainer>
         )
